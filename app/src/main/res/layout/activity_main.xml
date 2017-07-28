@@ -22,4 +22,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Speaker"/>
+
+    <Button
+        android:id="@+id/autoTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AUTO_TEST"/>
+
+    <TextView
+        android:id="@+id/ok"
+        android:layout_width="30dp"
+        android:layout_height="30dp" android:text="ok" />
+
+    <TextView
+        android:id="@+id/fail"
+        android:layout_width="30dp"
+        android:layout_height="30dp" android:text="fail"
+        android:textColor="#FF0000"/>
 </LinearLayout>

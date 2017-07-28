@@ -75,6 +75,9 @@ public class WifiConnectionManager {
             networkId = mManager.addNetwork(config);
         }
         else {
+            /*if(true){
+                return existing;
+            }*/
             config.networkId = existing;
             networkId = mManager.updateNetwork(config);
             if (networkId == -1) {
