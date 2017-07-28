@@ -1,4 +1,4 @@
-package com.harman.wifisetup;
+package com.test.wifisetup;
 
 import android.annotation.TargetApi;
 import android.content.Context;

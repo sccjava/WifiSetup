@@ -1,4 +1,4 @@
-package com.harman.wifisetup;
+package com.test.wifisetup;
 
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;

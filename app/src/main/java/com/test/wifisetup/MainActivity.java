@@ -1,4 +1,4 @@
-package com.harman.wifisetup;
+package com.test.wifisetup;
 
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.test.wifisetup.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private final static String TAG = "MainActivity";
@@ -42,12 +44,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(view.getId()){
             case R.id.speaker:
                 Log.d(TAG, "click speaker.....");
-                WifiConnectionManager wifi0 = new WifiConnectionManager(this, "Omni10_Setup_8B1", "");
+                WifiConnectionManager wifi0 = new WifiConnectionManager(this, "HK_Omni_10+_Setup_ffd", "");
                 wifi0.connectToWifi();
                 break;
             case R.id.dlink:
                 Log.d(TAG, "click dlink.....");
-                WifiConnectionManager wifi1 = new WifiConnectionManager(this, "D-Link_DIR-816(2.4G)", "12345678");
+                WifiConnectionManager wifi1 = new WifiConnectionManager(this, "D-Link_DIR-816_5G", "12345678");
                 wifi1.connectToWifi();
                 break;
             default:

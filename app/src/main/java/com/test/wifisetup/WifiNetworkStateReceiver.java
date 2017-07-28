@@ -1,4 +1,4 @@
-package com.harman.wifisetup;
+package com.test.wifisetup;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.support.annotation.NonNull;
 
-import com.harman.wifisetup.OnNetworkStateChangeListener;
+import com.test.wifisetup.OnNetworkStateChangeListener;
 
 /**
  * Broadcast listener that listens for broadcast changes.
