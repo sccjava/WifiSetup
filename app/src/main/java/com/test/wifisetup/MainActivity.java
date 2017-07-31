@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(wifi != null && connectingSSID != null)
                 {
                     String ip = getCurrentIP();
-                    if(wifi.getSSID().contains(connectingSSID) && network.getState() == NetworkInfo.State.CONNECTED && ip!= null && ip.contains("192.")){
+                    if(wifi.getSSID().contains(connectingSSID) && network.getState() == NetworkInfo.State.CONNECTED && ip!= null && (ip.contains("192.") || ip.contains("10."))){
                         okCnt.set(okCnt.get()+1);
                         Toast.makeText(getApplicationContext(), "ok.." + connectingSSID+"," + ip, Toast.LENGTH_LONG).show();
                         Log.d(TAG, "ok..............................................." + connectingSSID +", " + ip);
