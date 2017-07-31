@@ -1,7 +1,9 @@
 package com.test.wifisetup;
 
+import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -80,14 +82,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, String.format("Notify wifi changed ssid=%s, state=%s", wifi== null ? "": wifi.getSSID(), network.getState()));
                 if(wifi != null && connectingSSID != null)
                 {
-                    if(wifi.getSSID().contains(connectingSSID) && network.getState() == NetworkInfo.State.CONNECTED){
+                    String ip = getCurrentIP();
+                    if(wifi.getSSID().contains(connectingSSID) && network.getState() == NetworkInfo.State.CONNECTED && ip!= null && ip.contains("192.")){
                         okCnt.set(okCnt.get()+1);
-                        Toast.makeText(getApplicationContext(), "ok.." + connectingSSID, Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "ok..............................................." + connectingSSID);
+                        Toast.makeText(getApplicationContext(), "ok.." + connectingSSID+"," + ip, Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "ok..............................................." + connectingSSID +", " + ip);
                     }else{
                         failCnt.set(failCnt.get()+1);
-                        Log.d(TAG, "fail..............................................." + connectingSSID);
-                        Toast.makeText(getApplicationContext(), "fail.." + connectingSSID, Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "fail..............................................." + connectingSSID+", " + ip);
+                        Toast.makeText(getApplicationContext(), "fail.." + connectingSSID +"," +ip, Toast.LENGTH_LONG).show();
                     }
                     connectingSSID = null;
                     ok.setText(okCnt.get()+"");
@@ -142,5 +145,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
 
         this.unregisterReceiver(wifiReceiver);
+    }
+
+    private String getCurrentIP(){
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        //判断wifi是否开启
+        if (!wifiManager.isWifiEnabled()) {
+            wifiManager.setWifiEnabled(true);
+        }
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        if(wifiInfo == null){
+            return null;
+        }
+        int ipAddress = wifiInfo.getIpAddress();
+        String ip = IPv4Util.intToIp(ipAddress);
+        return ip;
     }
 }

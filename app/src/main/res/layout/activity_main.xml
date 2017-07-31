@@ -32,7 +32,7 @@
                 android:id="@+id/ssid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alan_5G" />
+                android:text="D-Link_DIR-816_5G" />
 
         </LinearLayout>
 
@@ -51,7 +51,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5555gggg" />
+                android:text="12345678" />
 
         </LinearLayout>
 
@@ -70,7 +70,7 @@
                 android:id="@+id/speaker_ssid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="HK_Omni_10+_Setup_ea3" />
+                android:text="HK_Omni_10+_Setup_ffd" />
 
         </LinearLayout>
 
