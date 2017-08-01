@@ -48,9 +48,7 @@ public class WifiConnectionManager {
 
             Method connectMethod = connectWifiByReflectMethod(networkId);
             if (connectMethod == null) {
-                Log.i(TAG,
-                        "connect wifi by enableNetwork method, Add by jiangping.li");
-                // 通用API
+                Log.i(TAG, "connect wifi by enableNetwork method");
                 mManager.enableNetwork(networkId, true);
             }
         }
@@ -137,12 +135,10 @@ public class WifiConnectionManager {
 
 
     /**
-     * 通过反射出不同版本的connect方法来连接Wifi
+     * Connect Wifi via Reflect method, it will update priority to this SSID
      *
-     * @author jiangping.li
      * @param netId
      * @return
-     * @since MT 1.0
      *
      */
     private Method connectWifiByReflectMethod(int netId) {
