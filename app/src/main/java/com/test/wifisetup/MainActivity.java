@@ -36,9 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String mSSID = null;
     private String mPwd = null;
     private String mSpeaker = null;
+    private int mInterval = 30;
+
     private EditText mEditTextSSID = null;
     private EditText mEditTextPwd = null;
     private EditText mEditTextSpeaker = null;
+    private EditText mEditTextInterval = null;
 
 
     private Handler handler = new Handler(){
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Log.d(TAG, "connecting..............................................." + connectingSSID);
 
-        handler.sendEmptyMessageDelayed(what == 0 ? 1 : 0, 30 * 1000);
+        handler.sendEmptyMessageDelayed(what == 0 ? 1 : 0, mInterval * 1000);
     }
 
     @Override
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEditTextSSID = (EditText) findViewById(R.id.ssid);
         mEditTextPwd = (EditText) findViewById(R.id.password);
         mEditTextSpeaker = (EditText) findViewById(R.id.speaker_ssid);
+        mEditTextInterval = (EditText)findViewById(R.id.interval);
 
         wifiReceiver = new WifiNetworkStateReceiver(new OnNetworkStateChangeListener() {
             @Override
@@ -118,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSSID = mEditTextSSID.getText().toString();
         mPwd = mEditTextPwd.getText().toString();
         mSpeaker = mEditTextSpeaker.getText().toString();
+        mInterval = Integer.valueOf(mEditTextInterval.getText().toString());
+
         switch(view.getId()){
             case R.id.speaker:
                 Log.d(TAG, "click speaker.....");
