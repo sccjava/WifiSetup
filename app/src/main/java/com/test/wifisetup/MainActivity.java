@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Log.d(TAG, "connecting..............................................." + connectingSSID);
 
-        handler.sendEmptyMessageDelayed(what == 0 ? 1 : 0, 30 * 1000);
+        handler.sendEmptyMessageDelayed(what == 0 ? 1 : 0, 10 * 1000);
     }
 
     @Override
